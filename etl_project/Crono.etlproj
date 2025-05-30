@@ -1,0 +1,32 @@
+﻿[CRONO ETL PROJECT] (
+  Environments=(
+    ENVIRONMENT (
+      Name='T14-PF4A1PDQ',
+      Datasource=[SQL SERVER CONNECTION] ([Server]='reto.dwh.es', DatabaseName='RETO04', Username='reto04', Password=[ENCRYPTED TEXT] ([Data]='Zc409Sr7sRcGGYDiSA0qK/eQwc8btj4+')),
+      BackgroundColor=COLOR (Name='White'),
+      IsDefault=NO
+    )
+  ),
+  ExcludedFiles=(),
+  StrategiesFileName='Procedures\Strategies.sql',
+  JobsFolderPath='Jobs',
+  MaxRows=100000,
+  AllowSaveWithErrors=NO,
+  TableFilter='*',
+  ProceduresViewMode='Workflow',
+  EtlOptions=
+    [ETL OPTIONS] (
+      InsertedDateColumnName='InsertDate',
+      UpdatedDateColumnName='UpdateDate',
+      DeletedDateColumnName='DeleteDate',
+      StartDateColumnName='StartDate',
+      EndDateColumnName='EndDate',
+      DefaultEndDate=d'2100-01-01',
+      CurrentDateExpression=EXPRESSION (getdate()),
+      CreateProcedureExtendedProperties=YES
+    ),
+  IsProceduresViewVisible=YES,
+  IsSourceViewVisible=YES,
+  IsOthersViewVisible=NO,
+  IsJobViewVisible=YES
+)

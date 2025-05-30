@@ -1,0 +1,283 @@
+﻿REPORT (
+  Guid='RCFNhJPh',
+  IsReadOnly=NO,
+  CatalogDefinition=
+    [CATALOG DEFINITION] (
+      Name='sentiment_analysis_catalog',
+      Guid='TsIhfbRiKK',
+      FileName='sentiment_analysis_catalog.metadata',
+      Location=FILE '{special:documents}\100_t\sentimental_rep\sentiment_analysis_catalog.metadata'
+    ),
+  CatalogGuid='TsIhfbRiKK',
+  Reports=(
+    [PANEL REPORT] (
+      Name='Informe 1',
+      IsVisible=YES,
+      ReportPredicates=(),
+      Sheets=(
+        SHEET (
+          Guid='IrYOeqnv',
+          Name='Hoja 1',
+          Layout=
+            LAYOUT (
+              ItemHeight='*',
+              Items=(
+                LAYOUT (
+                  ItemHeight='0.64835*',
+                  Items=(),
+                  ItemWidth='*',
+                  IsVisible=YES,
+                  Orientation='Terminal',
+                  DataPanel=
+                    PANEL (
+                      Guid='FaKKKiAt',
+                      PanelQuery=
+                        QUERY (
+                          [Columns]=(
+                            [QUERY COLUMN] (Alias='Recuento de Word', [Expression]=EXPRESSION (count([Word|itsBsknV])), [Order]=0, OrderMode='Desc'),
+                            [QUERY COLUMN] (Alias='Status', [Expression]=EXPRESSION ([Status|TysAAmGU]), IsMeasure=NO, IsHierarchyLevel=YES)
+                          )
+                        ),
+                      Type='Bars',
+                      LockQuery=NO,
+                      ShowFilters=NO,
+                      AllowMoveColumns=YES,
+                      IsSelectionRequired=NO,
+                      GridFormat='H4sIAAAAAAAACuWUwU7CQBCG7ya-w2b1LHAvTUwTCAl6oEC8bmSAibs7zXQWU1_Ng4_kK1jQItAicPbYZr9__n_6dz_fP6InYZMCo7H4BqxWwDmS7-rOXVsrk2UWn41s3vQZZwl5YbI6vr5SKsqYMmAplDcOuvpmaAoKMv2W0ApzH6ztauEAWrUamdtd1ZJ4gaICVsYGaBhbF5nk0EOws8fyqUdcxdn41vFaLWpVyBGJPlPIEgpedNw-73QanDNcNLvuVF7r8EDAdQ63s6uxJevsz8xxkZXHNnZrXpuwe4sL72AdboSLZRNUz3xqCSmxDPycmhfQrr54HUzIBufzi7kpwutZezsEy044I2WJZriuxOnJxzwnS6IcOBUj8JeT3winljgmMfa_N-lhNOmhlfLeuLgTW3SIuVxM7_7HZ9Z5L0zU2r8-4y-3o_-TUgUAAA',
+                      AllowPropagateFilters=YES,
+                      TableOptions=
+                        [TABLE OPTIONS] (
+                          Appearance=APPEARANCE (),
+                          SearchOptions=
+                            [SEARCH PANEL] (
+                              SearchPanelVisible=NO,
+                              Text='Búsqueda...',
+                              Width=240,
+                              AllowColumnFiltering=YES,
+                              AllowColumnSearch=YES
+                            )
+                        ),
+                      TableCellMerge=NO,
+                      ShowGroupbox=NO,
+                      ShowHeaders=YES,
+                      ShowRowHeaders=NO,
+                      ChartOptions=
+                        [CHART OPTIONS] (
+                          Header=
+                            HEADER (
+                              Title='Recuento de palabras'
+                            ),
+                          Legend=LEGEND (Visible=YES),
+                          Appearance=
+                            [CHART APPEARANCE] (
+                              AllowHorizontalNavigation=YES,
+                              AllowVerticalNavigation=YES,
+                              ShowLabels=YES,
+                              AnimateChart=YES,
+                              Palette='NorthernLights'
+                            ),
+                          MeasureAxis=
+                            [Y AXIS] (
+                              Visible=NO,
+                              GridVisible=YES
+                            )
+                        ),
+                      GaugeMaxValue=100,
+                      GaugeMinValue=0,
+                      GaugeStyleType='Default',
+                      GaugeFlipColors=NO,
+                      MapShowScale=NO,
+                      MapShowNavigationControls=NO,
+                      MapShowCoordinates=NO,
+                      MapShapeNumSteps=8,
+                      MapShapeNumColors=1,
+                      MapCircleCalculateSizeFromIndicator=YES,
+                      RangeChartType='Area',
+                      DataInputAllowInsert=NO,
+                      DataInputAllowDelete=NO
+                    )
+                ),
+                LAYOUT (
+                  ItemHeight='*',
+                  Items=(),
+                  ItemWidth='*',
+                  IsVisible=YES,
+                  Orientation='Terminal',
+                  DataPanel=
+                    PANEL (
+                      Guid='OEFkEzbt',
+                      PanelQuery=
+                        QUERY (
+                          [Columns]=(
+                            [QUERY COLUMN] (Alias='Word', [Expression]=EXPRESSION ([Word|itsBsknV]), IsMeasure=NO, IsHierarchyLevel=YES, [Bundle]=[BUNDLE] (BundleType='None', AggregationFunction='Sum')),
+                            [QUERY COLUMN] (Alias='Count', [Expression]=EXPRESSION ([Count|KSUtQWPp]), IsMeasure=NO, IsVisible=NO, AggregationFunction='Sum', IsHierarchyLevel=YES, [Bundle]=[BUNDLE] (BundleType='Remove', AggregationFunction='Sum')),
+                            [QUERY COLUMN] (Alias='Sum of Count', IsAutomaticAlias=NO, [Expression]=EXPRESSION ([Count]), IsCalculated=YES, [Order]=0, OrderMode='Desc', [Bundle]=[BUNDLE] (BundleType='Function', AggregationFunction='Sum'))
+                          ),
+                          TopFilter=
+                            [TOP FILTER] (
+                              IsEnabled=YES,
+                              [Limit]=20,
+                              OrderBy=(
+                                [COLUMN ORDER] (ColumnName='Sum of Count', OrderMode='Desc')
+                              )
+                            ),
+                          IsBundled=YES
+                        ),
+                      Type='Bars',
+                      LockQuery=NO,
+                      ShowFilters=NO,
+                      AllowMoveColumns=YES,
+                      IsSelectionRequired=NO,
+                      GridFormat='H4sIAAAAAAAACuWUwU7CQBCG7ya-w2b1LHAvTUwTCAl6oEC8bmSAibs7zXQWU1_Ng4_kK1jQItAicPbYZr9__n_6dz_fP6InYZMCo7H4BqxWwDmS7-rOXVsrk2UWn41s3vQZZwl5YbI6vr5SKsqYMmAplDcOuvpmaAoKMv2W0ApzH6ztauEAWrUamdtd1ZJ4gaICVsYGaBhbF5nk0EOws8fyqUdcxdn41vFaLWpVyBGJPlPIEgpedNw-73QanDNcNLvuVF7r8EDAdQ63s6uxJevsz8xxkZXHNnZrXpuwe4sL72AdboSLZRNUz3xqCSmxDPycmhfQrr54HUzIBufzi7kpwutZezsEy044I2WJZriuxOnJxzwnS6IcOBUj8JeT3winljgmMfa_N-lhNOmhlfLeuLgTW3SIuVxM7_7HZ9Z5L0zU2r8-4y-3o_-TUgUAAA',
+                      AllowPropagateFilters=YES,
+                      TableOptions=
+                        [TABLE OPTIONS] (
+                          Appearance=APPEARANCE (),
+                          SearchOptions=
+                            [SEARCH PANEL] (
+                              SearchPanelVisible=NO,
+                              Text='Búsqueda...',
+                              Width=240,
+                              AllowColumnFiltering=YES,
+                              AllowColumnSearch=YES
+                            )
+                        ),
+                      TableCellMerge=NO,
+                      ShowGroupbox=NO,
+                      ShowHeaders=YES,
+                      ShowRowHeaders=NO,
+                      ChartOptions=
+                        [CHART OPTIONS] (
+                          Header=
+                            HEADER (
+                              Title='Palabras más frecuentes'
+                            ),
+                          Legend=LEGEND (Visible=YES),
+                          Appearance=
+                            [CHART APPEARANCE] (
+                              AllowHorizontalNavigation=YES,
+                              AllowVerticalNavigation=YES,
+                              Palette='NorthernLights'
+                            )
+                        ),
+                      GaugeMaxValue=100,
+                      GaugeMinValue=0,
+                      GaugeStyleType='Default',
+                      GaugeFlipColors=NO,
+                      MapShowScale=NO,
+                      MapShowNavigationControls=NO,
+                      MapShowCoordinates=NO,
+                      MapShapeNumSteps=8,
+                      MapShapeNumColors=1,
+                      MapCircleCalculateSizeFromIndicator=YES,
+                      RangeChartType='Area',
+                      DataInputAllowInsert=NO,
+                      DataInputAllowDelete=NO
+                    )
+                )
+              ),
+              ItemWidth='*',
+              IsVisible=YES,
+              Orientation='Vertical'
+            ),
+          IsVisible=NO,
+          PropagationMode='LeftToRight'
+        ),
+        SHEET (
+          Guid='ZtGbXxcI',
+          Name='Hoja 2',
+          Layout=
+            LAYOUT (
+              ItemHeight='*',
+              Items=(
+                LAYOUT (
+                  ItemHeight='*',
+                  Items=(),
+                  ItemWidth='*',
+                  IsVisible=YES,
+                  Orientation='Terminal',
+                  DataPanel=
+                    PANEL (
+                      Guid='SyLInSbT',
+                      PanelQuery=
+                        QUERY (
+                          [Columns]=(
+                            [QUERY COLUMN] (Alias='Status Anxiety, Bipolar, Depression, Normal, Personality disorder, Stress, Suicidal', [Expression]=EXPRESSION ([Status|SPkOFJbv]), FilterType='WhereFilter', Filters=([QUERY PREDICATE] (EditView='MultipleSelection', LeftPart=[Status|SPkOFJbv], Operator='In', Expressions=('Anxiety', 'Bipolar', 'Depression', 'Normal', 'Personality disorder', 'Stress', 'Suicidal'))), IsMeasure=NO, IsHierarchyLevel=YES, [Bundle]=[BUNDLE] (BundleType='None', AggregationFunction='Sum')),
+                            [QUERY COLUMN] (Alias='Word count', [Expression]=EXPRESSION ([Word count|HKUzBIKq]), IsMeasure=NO, IsVisible=NO, [Order]=0, OrderMode='Desc', IsHierarchyLevel=YES, [Bundle]=[BUNDLE] (BundleType='Function', AggregationFunction='Avg')),
+                            [QUERY COLUMN] (Alias='Lower', IsAutomaticAlias=NO, [Expression]=EXPRESSION ([Word count]), IsCalculated=YES, [Bundle]=[BUNDLE] (BundleType='Function', AggregationFunction='Min')),
+                            [QUERY COLUMN] (Alias='Mean', IsAutomaticAlias=NO, [Expression]=EXPRESSION ([Word count]), IsCalculated=YES, ChartSerieType='Line', [Bundle]=[BUNDLE] (BundleType='Function', AggregationFunction='Avg')),
+                            [QUERY COLUMN] (Alias='Upper', IsAutomaticAlias=NO, [Expression]=EXPRESSION ([Word count]), IsCalculated=YES, [Bundle]=[BUNDLE] (BundleType='Function', AggregationFunction='Max'))
+                          ),
+                          IsBundled=YES
+                        ),
+                      Type='Bars',
+                      LockQuery=NO,
+                      ShowFilters=NO,
+                      AllowMoveColumns=YES,
+                      IsSelectionRequired=NO,
+                      GridFormat='H4sIAAAAAAAACuWUwU7CQBCG7ya-w2b1LHAvTUwTCAl6oEC8bmSAibs7zXQWU1_Ng4_kK1jQItAicPbYZr9__n_6dz_fP6InYZMCo7H4BqxWwDmS7-rOXVsrk2UWn41s3vQZZwl5YbI6vr5SKsqYMmAplDcOuvpmaAoKMv2W0ApzH6ztauEAWrUamdtd1ZJ4gaICVsYGaBhbF5nk0EOws8fyqUdcxdn41vFaLWpVyBGJPlPIEgpedNw-73QanDNcNLvuVF7r8EDAdQ63s6uxJevsz8xxkZXHNnZrXpuwe4sL72AdboSLZRNUz3xqCSmxDPycmhfQrr54HUzIBufzi7kpwutZezsEy044I2WJZriuxOnJxzwnS6IcOBUj8JeT3winljgmMfa_N-lhNOmhlfLeuLgTW3SIuVxM7_7HZ9Z5L0zU2r8-4y-3o_-TUgUAAA',
+                      AllowPropagateFilters=YES,
+                      TableOptions=
+                        [TABLE OPTIONS] (
+                          Appearance=APPEARANCE (),
+                          SearchOptions=
+                            [SEARCH PANEL] (
+                              SearchPanelVisible=NO,
+                              Text='Búsqueda...',
+                              Width=240,
+                              AllowColumnFiltering=YES,
+                              AllowColumnSearch=YES
+                            )
+                        ),
+                      TableCellMerge=NO,
+                      ShowGroupbox=NO,
+                      ShowHeaders=YES,
+                      ShowRowHeaders=NO,
+                      ChartOptions=
+                        [CHART OPTIONS] (
+                          Header=
+                            HEADER (
+                              Title='Media de palabras '
+                            ),
+                          Legend=LEGEND (Visible=YES),
+                          Appearance=
+                            [CHART APPEARANCE] (
+                              AllowHorizontalNavigation=YES,
+                              AllowVerticalNavigation=YES,
+                              Palette='PastelKit'
+                            )
+                        ),
+                      GaugeMaxValue=100,
+                      GaugeMinValue=0,
+                      GaugeStyleType='Default',
+                      GaugeFlipColors=NO,
+                      MapShowScale=NO,
+                      MapShowNavigationControls=NO,
+                      MapShowCoordinates=NO,
+                      MapShapeNumSteps=8,
+                      MapShapeNumColors=1,
+                      MapCircleCalculateSizeFromIndicator=YES,
+                      RangeChartType='Area',
+                      DataInputAllowInsert=NO,
+                      DataInputAllowDelete=NO
+                    )
+                )
+              ),
+              ItemWidth='*',
+              IsVisible=YES,
+              Orientation='Horitzontal'
+            ),
+          IsVisible=YES,
+          PropagationMode='LeftToRight'
+        )
+      )
+    )
+  ),
+  UserBusinessItems=(),
+  Parameters=(),
+  ConnectionMode='Default',
+  ShowCatalog=YES,
+  ShowSheetsInReportExplorer=NO,
+  AllowDataInput=NO,
+  DefaultChartPalete='Office'
+)

@@ -1,0 +1,34 @@
+﻿[DATABASE] (
+  Name='sentiment_analysis_catalog',
+  Guid='TsIhfbRiKK',
+  DataSource=[SQL SERVER CONNECTION] ([Server]='reto.dwh.es', DatabaseName='RETO04', Username='reto04', Password=[ENCRYPTED TEXT] ([Data]='Zc409Sr7sRcGGYDiSA0qK/eQwc8btj4+')),
+  [Tables]=(
+    [TABLE] (TableAlias='freq_count', TableName='sa.freq_count', TableColumns=(
+      [TABLE COLUMN] (Name='status', DataType='nvarchar(MAX)', IsNullable=YES),
+      [TABLE COLUMN] (Name='word', DataType='nvarchar(MAX)', IsNullable=YES),
+      [TABLE COLUMN] (Name='count', DataType='float', IsNullable=YES)
+    )),
+    [TABLE] (TableAlias='word_count', TableName='sa.word_count', TableColumns=(
+      [TABLE COLUMN] (Name='status', DataType='nvarchar(MAX)', IsNullable=YES),
+      [TABLE COLUMN] (Name='word_count', DataType='float', IsNullable=YES),
+      [TABLE COLUMN] (Name='sentiment_score', DataType='nvarchar(MAX)', IsNullable=YES),
+      [TABLE COLUMN] (Name='cluster', DataType='float', IsNullable=YES)
+    ))
+  ),
+  Items=(
+    [BUSINESS ITEM] (Name='FreqCount', Guid='wLHZqOMv', AggregationFunction='Default', Items=(
+      [BUSINESS ITEM] (Name='Count', Definition=freq_count.[count], Guid='KSUtQWPp', LovEnabled=YES, AggregationFunction='Default', DataType=OBJECT_TYPE 'System.Double', Format=[NUMBER FORMAT] (), Items=()),
+      [BUSINESS ITEM] (Name='Word', Definition=freq_count.word, Guid='itsBsknV', LovEnabled=YES, AggregationFunction='Default', DataType=OBJECT_TYPE 'System.String', Items=()),
+      [BUSINESS ITEM] (Name='Status', Definition=freq_count.status, Guid='TysAAmGU', LovEnabled=YES, AggregationFunction='Default', DataType=OBJECT_TYPE 'System.String', Items=())
+    )),
+    [BUSINESS ITEM] (Name='WordCount', Guid='HxoBqveC', AggregationFunction='Default', Items=(
+      [BUSINESS ITEM] (Name='Word count', Definition=word_count.word_count, Guid='HKUzBIKq', LovEnabled=YES, AggregationFunction='Default', DataType=OBJECT_TYPE 'System.Double', Items=()),
+      [BUSINESS ITEM] (Name='Status', Definition=word_count.status, Guid='SPkOFJbv', LovEnabled=YES, AggregationFunction='Default', DataType=OBJECT_TYPE 'System.String', Items=())
+    ))
+  ),
+  TableFilter='*',
+  DefaultLanguage='es',
+  TranslateAllOnSaving=NO,
+  TablesSortMode='TableAlias',
+  AvoidRepeatTablesOnDiagrams=NO
+)

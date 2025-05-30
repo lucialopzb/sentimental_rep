@@ -1,0 +1,6 @@
+﻿CREATE OR REPLACE TABLE sa.word_count
+SELECT
+	PERCENTILE_CONT (0.25) WITHIN GROUP (ORDER BY word_count) OVER (PARTITION BY status) as q25,
+	PERCENTILE_CONT (0.50) WITHIN GROUP (ORDER BY word_count) OVER (PARTITION BY status) as median,
+	PERCENTILE_CONT (0.75) WITHIN GROUP (ORDER BY word_count) OVER (PARTITION BY status) AS q75
+FROM crono$csv(FileName='@@root\..\data\word_count.csv') MATERIALIZE INTO stg.tmp tmp
